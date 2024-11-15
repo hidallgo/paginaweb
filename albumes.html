@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="css/album.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>EcoSonoro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="album-gallery">
+        <h2>ÁLBUMES DESTACADOS</h2>
+        <div class="albums-container">
+          <div class="album-card">
+            <img src="img/quineestaaqui.jfif" alt="QUIEN ESTÁ AQUÍ">
+            <p>QUIEN ESTÁ AQUÍ</p>
+          </div>
+          <div class="album-card">
+            <img src="img/unasemanaincreible.jfif" alt="una semana increible ">
+            <p>UNA SEMANA INCREIBLE</p>
+          </div>
+          <div class="album-card">
+            <img src="img/memuevocondios.jfif" alt="ME MUEVO CON DIOS">
+            <p>ME MUEVO CON DIOS</p>
+          </div>
+          <div class="album-card">
+            <img src="img/MOONLIGHT.jfif" alt="MOONLIGHT">
+            <p>MOONLIGHT</p>
+          </div>
+          <div class="album-card">
+            <img src="img/BROWNBOY.jfif" alt="BROWN BOY">
+            <p>BROWN BOY</p>
+          </div>
+          <div class="album-card">
+            <img src="img/GORGONA.jfif" alt="GORGONA">
+            <p>GORGONA</p>
+          </div>
+          <div class="album-card">
+            <img src="img/dondequieroestar.jfif" alt="DONDE QUIERO ESTAR">
+            <p>DONDE QUIERO ESTAR</p>
+          </div>
+          <div class="album-card">
+            <img src="img/VERBENACONPEPE.jfif" alt="VERBENA CON PEPE">
+            <p>VERBENA CON PEPE</p>
+          </div>
+          <div class="album-card">
+            <img src="img/CHACHICHACHO.jfif" alt="CHACHICHACHO">
+            <p>CHACHICHACHO</p>
+          </div>
+        </div>
+    </section>
+
+    <div class="container-form">
+        <h2>Tus gustos nos importa</h2>
+        <h4>Déjanos quién es tu cantante favorito</h4>
+
+        <div class="item-form">
+            <form id="contactForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre:</label>
+                    <input type="text" name="name" id="name" class="form-control">
+                    <span id="form-name" class="text-danger">* Campo Obligatorio</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico:</label>
+                    <input type="email" name="email" id="email" class="form-control">
+                    <span id="form-email" class="text-danger">* Campo Obligatorio</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="artist" class="form-label">Cantante Favorito:</label>
+                    <input type="text" name="artist" id="artist" class="form-control">
+                    <span id="form-artist" class="text-danger">* Campo Obligatorio</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="album" class="form-label">Álbum Favorito:</label>
+                    <input type="text" name="album" id="album" class="form-control">
+                    <span id="form-album" class="text-danger">* Campo Obligatorio</span>
+                </div>
+
+                <button type="button" onclick="validateForm()" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+
+        <!-- Aquí se generará el cuadro con la información ingresada -->
+        <div id="userInfo" class="mt-4" style="display:none;">
+            <div class="user-info-box">
+               <span id="displayArtistName"></span>
+                <p><strong>Nombre:</strong> <span id="displayName"></span></p>
+                <p><strong>Artista Favorito:</strong> <span id="displayArtist"></span></p>
+                <p><strong>Álbum Favorito:</strong> <span id="displayAlbum"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Sobre Nosotros</h2>
+                <p>Descubre nuevas canciones, explora playlists y mantente al tanto de las tendencias del momento. En EcoSonoro estamos comprometidos con mostrarte la mejor música. Contáctanos para colaboraciones.</p>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Enlaces Rápidos</h2>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="albumes.html">Albumes</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoSonoro | Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/validate.js"></script>
+    <script>
+        function validateForm() {
+            // Obtener los valores del formulario
+            const name = document.getElementById('name').value;
+            const artist = document.getElementById('artist').value;
+            const album = document.getElementById('album').value;
+
+            // Verificar que los campos no estén vacíos
+            if (name.trim() === '' || artist.trim() === '' || album.trim() === '') {
+                alert('Por favor, complete todos los campos.');
+                return;
+            }
+
+            // Mostrar la información del usuario debajo del formulario
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('displayArtist').textContent = artist;
+            document.getElementById('displayAlbum').textContent = album;
+            document.getElementById('displayArtistName').textContent = artist;
+
+            // Mostrar el cuadro con la información del usuario
+            document.getElementById('userInfo').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

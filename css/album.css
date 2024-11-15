@@ -1,0 +1,293 @@
+body {
+  background-color: rgb(248, 247, 247);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 20px;
+  color: brown;
+  font-size: 80px;
+}
+
+nav {
+  width: 100%;
+  background-color: #db3434;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  flex-grow: 1;
+  text-align: center;
+}
+
+nav a {
+  display: block;
+  margin: 0;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid white;
+}
+
+nav a:hover {
+  background-color: #bb2121;
+}
+
+/* Formulario */
+.container-form {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  max-width: 600px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.item-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-form .form-label {
+  font-weight: bold;
+  color: brown;
+}
+
+.item-form input {
+  border: 1px solid #db3434;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.text-danger {
+  display: none;
+  font-size: 12px;
+  color: red;
+}
+
+.form-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #db3434;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #bb2121;
+}
+
+footer {
+  background-color: #bb2121;
+  color: #fff;
+  padding-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.footer-section h2 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-section p {
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #ffa500;
+}
+
+.footer-bottom {
+  background-color: #111;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 0.8em;
+  border-top: 1px solid #333;
+}
+
+.album-gallery {
+  text-align: center;
+  margin: 50px 20px;
+}
+
+.album-gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  color: brown;
+}
+
+.albums-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.album-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-card img {
+  width: 100%;
+  border-bottom: 2px solid #db3434;
+}
+
+.album-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.album-card p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .albums-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .albums-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+p {
+  font-weight: bold;
+}
+
+/* Para dispositivos móviles (menos de 768px) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav a {
+    padding: 8px;
+  }
+
+  .container-form {
+    padding: 15px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+/* Para tablets (768px a 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  h1 {
+    font-size: 60px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+  }
+
+  .container-form {
+    max-width: 90%;
+  }
+
+  .footer-container {
+    justify-content: space-between;
+    padding: 15px 10px;
+  }
+
+  .footer-section {
+    margin: 0 10px;
+  }
+}
+
+/* Para escritorio (más de 1024px) */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 80px;
+  }
+
+  nav ul {
+    flex-direction: row;
+  }
+
+  .container-form {
+    max-width: 600px;
+  }
+
+  .footer-container {
+    flex-direction: row;
+  }
+
+  .footer-section {
+    margin: 0 20px;
+  }
+}
